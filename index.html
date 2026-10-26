@@ -3,49 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>None</title>
+    <title>テキスト表示</title>
     <style>
+        /* 黒背景・白文字の設定 */
         body {
             margin: 0;
-            padding: 0;
+            padding: 40px;
             background-color: #000000;
             color: #ffffff;
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            font-family: monospace, sans-serif;
             min-height: 100vh;
+            box-sizing: border-box;
         }
 
-        .container {
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #333333;
-            border-radius: 8px;
-        }
-
-        a {
-            color: #4da6ff;
-            font-size: 1.2rem;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        /* 改行やスペースをそのまま維持して表示 */
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <p>以下のリンクからテキストファイルを開くかダウンロードできます：</p>
-        <!-- 💡 同じ階層にあるテキストファイル名を href に指定します -->
-        <!-- download 属性をつけると直接ダウンロードさせることができます -->
-        <a href="answer.txt" target="_blank">📄 document.txt を開く</a>
-    </div>
+    <pre id="content"></pre>
+
+    <script>
+        // 💡 ここに同じ階層にあるテキストファイル名を指定します
+        const fileName = 'answer.txt';
+
+        // 自動でtxtファイルを読み込んで画面に流し込む
+        fetch(fileName)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content').textContent = data;
+            });
+    </script>
 
 </body>
 </html>
