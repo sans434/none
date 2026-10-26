@@ -3,22 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タイトル</title>
+    <title>テキストファイル置場</title>
     <style>
-        /* 🎨 ここにあとからCSS（デザイン）を追加できます */
         body {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
             font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #333333;
+            border-radius: 8px;
+        }
+
+        a {
+            color: #4da6ff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <!-- 📦 ここにあとから自由なHTML要素（中身）を追加できます -->
+    <div class="container">
+        <p>以下のリンクからテキストファイルを開くかダウンロードできます：</p>
+        <!-- 💡 同じ階層にあるテキストファイル名を href に指定します -->
+        <!-- download 属性をつけると直接ダウンロードさせることができます -->
+        <a href="document.txt" target="_blank">📄 document.txt を開く</a>
+    </div>
 
-    <script>
-        /* ⚡ ここにあとからJavaScript（動き）を追加できます */
-    </script>
 </body>
 </html>
